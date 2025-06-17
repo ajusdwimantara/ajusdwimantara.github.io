@@ -6,44 +6,83 @@
   <title>Ajus Dwimantara | Data Analyst Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      --teal: #008080;
+      --dark-bg: #002f2f;
+      --white: #ffffff;
+      --gray-light: #f9f9f9;
+      --text-color: #333333;
+      --section-bg: #ffffff;
+    }
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
-      background-color: #f9f9f9;
-      color: #333;
+      background-color: var(--gray-light);
+      color: var(--text-color);
     }
     header {
-      background-color: #1e293b;
-      color: white;
-      padding: 2rem;
+      background-color: var(--dark-bg);
+      color: var(--white);
+      padding: 2rem 4rem;
       text-align: center;
+      max-width: 960px;
+      margin: auto;
+      border-radius: 0 0 12px 12px;
     }
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
+      font-weight: 700;
     }
     header p {
       margin-top: 0.5rem;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #a0e8e8;
     }
     section {
       padding: 2rem 4rem;
       max-width: 960px;
-      margin: auto;
+      margin: 2rem auto;
+      background-color: var(--section-bg);
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 3px solid var(--teal);
+      padding-bottom: 0.3rem;
+      font-weight: 700;
+      color: var(--dark-bg);
     }
     .project {
-      background-color: white;
+      margin-bottom: 2rem;
+      border-radius: 12px;
       padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      background-color: var(--gray-light);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.04);
+      border: 1px solid #ccc;
     }
     .project h3 {
       margin-top: 0;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--dark-bg);
     }
-    .project a {
-      color: #2563eb;
-      text-decoration: none;
+    .project img {
+      width: 60%;
+      border-radius: 8px;
+      margin: 0.75rem 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: block;
+    }
+    .project p {
+      text-align: justify;
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
     }
     .skills-list {
       display: flex;
@@ -51,20 +90,74 @@
       gap: 1rem;
     }
     .skills-list span {
-      background-color: #e0f2fe;
+      background-color: #a0e8e8;
+      color: var(--dark-bg);
       padding: 0.5rem 1rem;
-      border-radius: 5px;
-      font-weight: 600;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      box-shadow: 0 2px 6px rgba(0,128,128,0.3);
+      user-select: none;
     }
     footer {
       text-align: center;
       padding: 1.5rem;
-      background-color: #f1f5f9;
-      margin-top: 2rem;
+      background-color: #e0f2f2;
+      margin-top: 3rem;
+      font-weight: 600;
+      color: var(--dark-bg);
+      border-radius: 12px 12px 0 0;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
     }
+    a {
+      color: var(--teal);
+      text-decoration: none;
+    }
+    a:hover, a:focus {
+      text-decoration: underline;
+      outline: none;
+    }
+    /* View link button styling */
+    .view-link {
+      display: inline-block;
+      border: 2px solid var(--teal);
+      color: var(--teal);
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      background-color: transparent;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      margin-top: 0.4rem;
+      margin-right: 0.5rem;
+      user-select: none;
+    }
+    .view-link:hover,
+    .view-link:focus {
+      background-color: var(--teal);
+      color: var(--white);
+      outline: none;
+    }
+
     @media (max-width: 600px) {
-      section {
-        padding: 1rem;
+      section, header, footer {
+        padding: 1rem 1.5rem;
+        margin: 1rem;
+      }
+      .project img {
+        width: 100%;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      section h2 {
+        font-size: 1.6rem;
+      }
+      .skills-list {
+        justify-content: center;
       }
     }
   </style>
@@ -84,57 +177,115 @@
     <h2>Projects</h2>
 
     <div class="project">
-      <h3>E-commerce Data Analysis</h3>
-      <img src="images/arm_deep_q_learning.jpeg" style="width:60%; border-radius: 8px;" alt="arm-robot-deep-q-learning">
-      <p style="text-align: justify;">
-        This project features an interactive e-commerce data visualization dashboard built with Streamlit in Python. It provides insights into sales trends and customer geolocation data, helping businesses understand their market and optimize strategies.
-        <br><br>
-        <strong>Goal:</strong> Create an intuitive dashboard for visualizing and analyzing e-commerce sales and geolocation data<br>
-        <strong>Tools Used:</strong> Python, Streamlit, Pandas, Matplotlib<br>
-        <strong>Features:</strong> Interactive charts, maps for geospatial data, and dynamic filtering options to explore sales performance<br>
-        <strong>Highlights:</strong>  
-        Real-time data interaction, user-friendly interface, and actionable business insights through visualization.
+      <h3>Dropout Rate Analysis</h3>
+      <img src="images/dropout/dashboard.png" alt="dashboard"/>
+      <p>
+        This project focuses on analyzing factors contributing to student dropout using exploratory data analysis and machine learning classification. By examining demographic, academic, and institutional variables, the project identifies key indicators and patterns that influence students' likelihood of dropping out.
+        <br /><br />
+        <strong>Goal:</strong> Discover and understand the main factors affecting student dropout through data analysis and predictive modeling<br />
+        <strong>Tools Used:</strong> Python, Pandas, scikit-learn, Docker, Metabase<br />
+        <strong>Techniques:</strong> Data cleaning, feature engineering, correlation analysis, classification models (Random Forest)<br />
+        <strong>Features:</strong> Visual dashboards highlighting important trends and model insights to assist institutions in early intervention strategies
       </p>
+      <a href="https://github.com/ajusdwimantara/final_project_dropout_student/tree/master" target="_blank" rel="noopener noreferrer" class="view-link">View on GitHub</a>
+    </div>
 
-      <a href="https://github.com/ajusdwimantara/Data-Analysis-Project/tree/main">View on GitHub</a>
-      <a href="https://data-analysis-project-khraftev4lecqrferabvbd.streamlit.app/">View on Streamlit</a>
+    <div class="project">
+      <h3>Attrition Rate Analysis</h3>
+      <img src="images/attrition/ajus_dwimantara-dashboard.png" alt="dashboard"/>
+      <p>
+        This project analyzes employee attrition using statistical insights and machine learning to uncover key factors behind workforce turnover. By leveraging HR-related data such as job role, satisfaction level, salary, and working conditions, it helps organizations identify risk patterns and take proactive steps to improve retention.
+        <br /><br />
+        <strong>Goal:</strong> Identify and analyze the main contributors to employee attrition for better workforce management<br />
+        <strong>Tools Used:</strong> Python, Pandas, scikit-learn, Docker, Metabase<br />
+        <strong>Techniques:</strong> Data preprocessing, exploratory data analysis, feature importance ranking, Random Forest classification<br />
+        <strong>Features:</strong> Interactive Metabase dashboard presenting model results, attrition trends, and actionable insights to support HR decision-making
+      </p>
+      <a href="https://github.com/ajusdwimantara/attrition_rate_problem" target="_blank" rel="noopener noreferrer" class="view-link">View on GitHub</a>
+    </div>
+
+    <div class="project">
+      <h3>Book Recommendation System</h3>
+      <img src="images/book_recom/first_test.png" alt="first_test"/>
+      <img src="images/book_recom/second_test.png" alt="second_test"/>
+      <p>
+        This project presents a content-based book recommendation system that uses TF-IDF (Term Frequency-Inverse Document Frequency) to suggest similar books based on their descriptions. The system compares the text content of books to identify and recommend those with the highest similarity scores to a given input.
+        <br /><br />
+        <strong>Goal:</strong> Recommend books with similar content using natural language processing<br />
+        <strong>Tools Used:</strong> Python, Pandas, scikit-learn, NumPy<br />
+        <strong>Algorithm:</strong> TF-IDF Vectorization + Cosine Similarity<br />
+        <strong>Features:</strong> Input a book and view top recommendations based on textual similarity, interactive interface is not developed
+      </p>
+      <a href="https://github.com/ajusdwimantara/book-recommendation-tfidf/tree/main" target="_blank" rel="noopener noreferrer" class="view-link">View on GitHub</a>
+    </div>
+
+    <div class="project">
+      <h3>Microsoft Stock Forecasting</h3>
+      <img src="images/stock-forecasting/stock_chart.png" alt="stock_chart"/>
+      <img src="images/stock-forecasting/evaluation.png" alt="evaluation"/>
+      <p>
+        This project focuses on forecasting Microsoft stock prices using a Long Short-Term Memory (LSTM) neural network. By training on historical stock data, the model learns temporal patterns and trends to predict future prices with improved accuracy. The project includes data preprocessing, model training, and performance evaluation using visual comparisons of predicted vs actual prices.
+        <br /><br />
+        <strong>Goal:</strong> Build a time-series forecasting model to predict Microsoft stock prices based on historical data<br />
+        <strong>Tools Used:</strong> Python, Pandas, NumPy, Matplotlib, TensorFlow/Keras<br />
+        <strong>Algorithm:</strong> LSTM (Long Short-Term Memory) Neural Network<br />
+        <strong>Evaluation:</strong> Line plots comparing actual and predicted prices, error metrics for model accuracy
+      </p>
+      <a href="https://github.com/ajusdwimantara/Stock-Forecasting/tree/main" target="_blank" rel="noopener noreferrer" class="view-link">View on GitHub</a>
+    </div>
+
+    <div class="project">
+      <h3>E-commerce Data Analysis</h3>
+      <img src="images/e-commerce_data analysis/1.png" alt="dashboard1" />
+      <img src="images/e-commerce_data analysis/2.png" alt="dashboard2" />
+      <img src="images/e-commerce_data analysis/3.png" alt="dashboard3" />
+      <img src="images/e-commerce_data analysis/4.png" alt="dashboard4" />
+      <img src="images/e-commerce_data analysis/5.png" alt="dashboard5" />
+      <p>
+        This project features an interactive e-commerce data visualization dashboard built with Streamlit in Python. It provides insights into sales trends and customer geolocation data, helping businesses understand their market and optimize strategies.
+        <br /><br />
+        <strong>Goal:</strong> Create an intuitive dashboard for visualizing and analyzing e-commerce sales and geolocation data<br />
+        <strong>Tools Used:</strong> Python, Streamlit, Pandas, Matplotlib<br />
+        <strong>Features:</strong> Interactive charts, maps for geospatial data, and dynamic filtering options to explore sales performance<br />
+        <strong>Highlights:</strong> Real-time data interaction, user-friendly interface, and actionable business insights through visualization.
+      </p>
+      <a href="https://github.com/ajusdwimantara/Data-Analysis-Project/tree/main" target="_blank" rel="noopener noreferrer" class="view-link">View on GitHub</a>
+      <a href="https://data-analysis-project-khraftev4lecqrferabvbd.streamlit.app/" target="_blank" rel="noopener noreferrer" class="view-link">View on Streamlit</a>
     </div>
 
     <div class="project">
       <h3>Deep Q-learning for Inverse Kinematics Problem</h3>
-      <img src="images/arm_deep_q_learning.jpeg" style="width:60%; border-radius: 8px;" alt="arm-robot-deep-q-learning">
-      <p style="text-align: justify;">
+      <img src="images/arm_deep_q_learning.jpeg" alt="arm-robot-deep-q-learning" />
+      <p>
         A reinforcement learning project simulating a 3 Degrees-of-Freedom (DOF) robotic arm that learns to reach a target position using Deep Q-Learning. The environment and robot movement are visualized using Matplotlib, offering an intuitive and lightweight simulation.
-        <br><br>
-        <strong>Goal:</strong> Train an agent to control a robotic arm to reach a target (x, y) position<br>
-        <strong>Tools Used:</strong> Python, NumPy, Matplotlib<br>
-        <strong>Algorithm:</strong> Deep Q-Learning (DQL)<br>
+        <br /><br />
+        <strong>Goal:</strong> Train an agent to control a robotic arm to reach a target (x, y) position<br />
+        <strong>Tools Used:</strong> Python, NumPy, Matplotlib<br />
+        <strong>Algorithm:</strong> Deep Q-Learning (DQL)<br />
         <strong>Visualization:</strong> 2D animated plot of the robot arm and target location via Matplotlib.
       </p>
-
-      <a href="https://github.com/ajusdwimantara/arm-robot-deep-q-learning">View on GitHub</a>
+      <a href="https://github.com/ajusdwimantara/arm-robot-deep-q-learning" target="_blank" rel="noopener noreferrer" class="view-link">View on GitHub</a>
     </div>
 
     <div class="project">
       <h3>Morse Code Interpreter</h3>
-      <img src="images/morse_code_interpreter.jpg" style="width:60%; border-radius: 8px;" alt="morse_code_interpreter">
-      <p style="text-align: justify;">
+      <img src="images/morse_code_interpreter.jpg" alt="morse_code_interpreter" />
+      <p>
         This project involves building a Morse code interpreter using an Arduino microcontroller that decodes Morse signals in real-time. The neural network responsible for interpreting the signals is trained on a computer using a custom-built neural network implemented from scratch in C++.
-        <br><br>
-        <strong>Goal:</strong> Develop an embedded system to translate Morse code signals into readable text<br>
-        <strong>Tools Used:</strong> Arduino, C++ (custom neural network implementation), Serial communication<br>
-        <strong>Training Environment:</strong> Neural network training is performed offline on a PC using a C++ program designed from scratch without external ML libraries<br>
-        <strong>Deployment:</strong> Trained model parameters are uploaded to the Arduino to perform live Morse code decoding<br>
-        <strong>Highlights:</strong>  
-        End-to-end system combining hardware and software development, custom neural network architecture tailored for signal pattern recognition, and real-time signal processing on a microcontroller platform.
+        <br /><br />
+        <strong>Goal:</strong> Develop an embedded system to translate Morse code signals into readable text<br />
+        <strong>Tools Used:</strong> Arduino, C++ (custom neural network implementation), Serial communication<br />
+        <strong>Training Environment:</strong> Neural network training is performed offline on a PC using a C++ program designed from scratch without external ML libraries<br />
+        <strong>Deployment:</strong> Trained model parameters are uploaded to the Arduino to perform live Morse code decoding<br />
+        <strong>Highlights:</strong> End-to-end system combining hardware and software development, custom neural network architecture tailored for signal pattern recognition, and real-time signal processing on a microcontroller platform.
       </p>
-      <a href="https://github.com/ajusdwimantara/Morse-Code-Interpreter">View on GitHub</a>
+      <a href="https://github.com/ajusdwimantara/Morse-Code-Interpreter" target="_blank" rel="noopener noreferrer" class="view-link">View on GitHub</a>
     </div>
 
     <div class="project">
       <h3>Data Cleaning with SQL</h3>
       <p>Cleaned, transformed, and analyzed raw datasets using SQL to prepare reports and visual insights.</p>
-      <a href="https://github.com/ajusdwimantara/sql-cleaning">View on GitHub</a>
+      <a href="https://github.com/ajusdwimantara/sql-cleaning" target="_blank" rel="noopener noreferrer" class="view-link">View on GitHub</a>
     </div>
   </section>
 
@@ -142,10 +293,12 @@
     <h2>Skills</h2>
     <div class="skills-list">
       <span>Python</span>
+      <span>C++</span>
       <span>SQL</span>
       <span>Excel</span>
-      <span>Tableau</span>
+      <span>Metabase</span>
       <span>Power BI</span>
+      <span>AI/ML</span>
       <span>Data Visualization</span>
       <span>Data Cleaning</span>
       <span>RFM Analysis</span>
@@ -154,8 +307,8 @@
 
   <section>
     <h2>Contact</h2>
-    <p>Email: ajusdwimantara7c@gmail.com<br>
-    LinkedIn: <a href="https://www.linkedin.com/in/ajus-dwimantara-316a10225/" target="_blank">linkedin.com/in/ajusdwimantara</a></p>
+    <p>Email: ajusdwimantara7c@gmail.com<br />
+      LinkedIn: <a href="https://www.linkedin.com/in/ajus-dwimantara-316a10225/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ajusdwimantara</a></p>
   </section>
 
   <footer>
