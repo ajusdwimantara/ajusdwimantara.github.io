@@ -56,6 +56,38 @@
       font-weight: 700;
       color: var(--dark-bg);
     }
+    .header-content {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .profile-pic {
+      width: 160px;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border: 3px solid #a0e8e8;
+    }
+
+    .header-text {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .header-text h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+
+    .header-text p {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+      color: #a0e8e8;
+    }
     .project {
       margin-bottom: 2rem;
       border-radius: 12px;
@@ -164,8 +196,13 @@
 </head>
 <body>
   <header>
-    <h1>Anak Agung Ngurah Bagus Dwimantara</h1>
-    <p>Passionate about AI/ML, data, problem-solving, and continuous learning</p>
+    <div class="header-content">
+      <img src="images/profile.jpg" alt="Ajus Dwimantara" class="profile-pic" />
+      <div class="header-text">
+        <h1>Anak Agung Ngurah Bagus Dwimantara</h1>
+        <p>Passionate about AI/ML, data, problem-solving, and continuous learning</p>
+      </div>
+    </div>
   </header>
 
   <section>
